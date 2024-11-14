@@ -1,4 +1,30 @@
-# MELON-POLLINATION-SYSTEM-IN-GREENHOUSE-USING-YOLOv4
+<style>
+    .tombol-ujian {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        
+    }
+
+    .tombol-ujian:hover {
+        /* background-color: #45a049;   */
+        transform: scale(1.03);  
+        text-decoration: none;
+        color: white;
+
+    }
+</style>
+
+
+
+<h1 align="center">MELON-POLLINATION-SYSTEM-IN-GREENHOUSE-USING-YOLOv4</h1>
+
 
 ## Latar Belakang
 <div style="text-align: justify;">
@@ -51,21 +77,37 @@ learning rate 0.001, memperoleh hasil pada uji keseluruhan yaitu 92.8%. Dengan c
 Berikut perangkat keras yang digunakan pada penelitian ini
 <!-- ![Teks Pengganti](./Assets/gambar4_1.png) -->
 
+
+<div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; display: flex; justify-content: center; align-items: center; width: fit-content; margin: auto;">
 <img src="./Assets/gambar4_1.png" alt="Teks Alternatif" width="500" height="">
 
+</div>
 
 ## Alat Penelitian
 Berikut alat penelitan yang digunakan pada penelitian ini
 <!-- ![Teks Pengganti](./Assets/gambar4_2.png) -->
 <!-- ![Teks Pengganti](./Assets/gambar4_3.png) -->
-<img src="./Assets/gambar4_2.png" alt="Teks Alternatif" width="500" height="">
-<img src="./Assets/gambar4_3.png" alt="Teks Alternatif" width="500" height="">
+
+
+
+<div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center; width: fit-content; margin: auto;">
+    <img src="./Assets/gambar4_2.png" alt="Teks Alternatif" width="500">
+    <img src="./Assets/gambar4_3.png" alt="Teks Alternatif" width="500" style="margin-top: 20px;">
+</div>
+
 
 
 ## Pelabelan Data
 Tahapan pelabelan data ini menggunakan ROBOFLOW
 <!-- ![Teks Pengganti](./Assets/gambar4_4.png) -->
+
+
+
+<div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; display: flex; justify-content: center; align-items: center; width: fit-content; margin: auto;">
 <img src="./Assets/gambar4_4.png" alt="Teks Alternatif" width="500" height="">
+
+</div>
+
 
 ## Data Yang Digunakan
 
@@ -76,24 +118,53 @@ Data yang digunakan memiliki 3 versi yaitu:
 
 
 <!-- ![Teks Pengganti](./Assets/gambar4_5.png) -->
+
+
+<div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; display: flex; justify-content: center; align-items: center; width: fit-content; margin: auto;">
 <img src="./Assets/gambar4_5.png" alt="Teks Alternatif" width="500" height="">
 
+</div>
 
 ## Pengujian Klasifikasi Bunga
 
 Pengujian klasifikasi bunga ini digunakan untuk mengetahui seberapa efektif sistem yang sudah dibuat
 
 <!-- ![Teks Pengganti](./Assets/gambar4_14.png) -->
-<img src="./Assets/gambar4_14.png" alt="Teks Alternatif" width="500" height="">
+
+
+<div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center; width: fit-content; margin: auto;">
+    <img src="./Assets/gambar4_2.png" alt="Teks Alternatif" width="500">
+    <img src="./Assets/gambar4_3.png" alt="Teks Alternatif" width="500" style="margin-top: 20px;">
+</div>
 
 
 
+
+<br>
 Berikut hasil dari pengujian 
+<br>
+<br>
 <!-- ![Teks Pengganti](./Assets/gambar4_15.png) -->
-<img src="./Assets/gambar4_15.png" alt="Teks Alternatif" width="500" height="">
 
+
+<div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; display: flex; justify-content: center; align-items: center; width: fit-content; margin: auto;">
+    <img src="./Assets/gambar4_15.png" alt="Teks Alternatif" width="500" height="">
+
+</div>
+
+<br>
 Pelaksanaan pengujian dapat dilihat pada link berikut: 
-[Pengujian Keseluruhan Sistem](https://youtu.be/h_PwIwbu6fA)
+<br>
+
+<div style="text-align: center; margin-top: 20px;">
+    <a href="https://youtu.be/h_PwIwbu6fA" target="_blank" class="tombol-ujian">
+        Pengujian Keseluruhan Sistem
+    </a>
+</div>
+
+
+
+
 
 
 
