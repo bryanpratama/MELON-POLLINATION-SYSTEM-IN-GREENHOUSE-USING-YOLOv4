@@ -1,4 +1,34 @@
 <style>
+
+    .photo {
+        width:500px;
+        height:auto;
+    }
+
+    .border-single-photo {
+        background-color: #f0f0f0; 
+        padding: 15px; 
+        border-radius: 8px; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        width: fit-content; 
+        margin: auto;
+    }
+
+    .border-double-photo {
+        background-color: #f0f0f0; 
+        padding: 15px; 
+        border-radius: 8px; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        width: fit-content; 
+        margin: auto;
+    }
+
+    
     .tombol-ujian {
         background-color: #4CAF50;
         color: white;
@@ -21,10 +51,7 @@
     }
 </style>
 
-
-
 <h1 align="center">MELON-POLLINATION-SYSTEM-IN-GREENHOUSE-USING-YOLOv4</h1>
-
 
 ## Latar Belakang
 <div style="text-align: justify;">
@@ -76,10 +103,8 @@ learning rate 0.001, memperoleh hasil pada uji keseluruhan yaitu 92.8%. Dengan c
 ## Perancangan Perangkat Keras
 Berikut perangkat keras yang digunakan pada penelitian ini
 <!-- ![Teks Pengganti](./Assets/gambar4_1.png) -->
-
-
-<div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; display: flex; justify-content: center; align-items: center; width: fit-content; margin: auto;">
-<img src="./Assets/gambar4_1.png" alt="Teks Alternatif" width="500" height="">
+<div class="border-single-photo">
+<img src="./Assets/gambar4_1.png" alt="Teks Alternatif" class="photo">
 
 </div>
 
@@ -87,12 +112,10 @@ Berikut perangkat keras yang digunakan pada penelitian ini
 Berikut alat penelitan yang digunakan pada penelitian ini
 <!-- ![Teks Pengganti](./Assets/gambar4_2.png) -->
 <!-- ![Teks Pengganti](./Assets/gambar4_3.png) -->
-
-
-
-<div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center; width: fit-content; margin: auto;">
-    <img src="./Assets/gambar4_2.png" alt="Teks Alternatif" width="500">
-    <img src="./Assets/gambar4_3.png" alt="Teks Alternatif" width="500" style="margin-top: 20px;">
+<div class="border-double-photo">
+    <img src="./Assets/gambar4_2.png" alt="Teks Alternatif" class="photo">
+    <br>
+    <img src="./Assets/gambar4_3.png" alt="Teks Alternatif" class="photo" >
 </div>
 
 
@@ -100,12 +123,8 @@ Berikut alat penelitan yang digunakan pada penelitian ini
 ## Pelabelan Data
 Tahapan pelabelan data ini menggunakan ROBOFLOW
 <!-- ![Teks Pengganti](./Assets/gambar4_4.png) -->
-
-
-
-<div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; display: flex; justify-content: center; align-items: center; width: fit-content; margin: auto;">
-<img src="./Assets/gambar4_4.png" alt="Teks Alternatif" width="500" height="">
-
+<div class="border-single-photo">
+    <img src="./Assets/gambar4_4.png" alt="Teks Alternatif" class="photo">
 </div>
 
 
@@ -116,13 +135,9 @@ Data yang digunakan memiliki 3 versi yaitu:
 2. Grayscale
 3. Grayscale + Flip
 
-
 <!-- ![Teks Pengganti](./Assets/gambar4_5.png) -->
-
-
-<div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; display: flex; justify-content: center; align-items: center; width: fit-content; margin: auto;">
-<img src="./Assets/gambar4_5.png" alt="Teks Alternatif" width="500" height="">
-
+<div class="border-single-photo">
+    <img src="./Assets/gambar4_5.png" alt="Teks Alternatif" class="photo">
 </div>
 
 ## Pengujian Klasifikasi Bunga
@@ -130,26 +145,17 @@ Data yang digunakan memiliki 3 versi yaitu:
 Pengujian klasifikasi bunga ini digunakan untuk mengetahui seberapa efektif sistem yang sudah dibuat
 
 <!-- ![Teks Pengganti](./Assets/gambar4_14.png) -->
-
-
-<div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center; width: fit-content; margin: auto;">
-    <img src="./Assets/gambar4_2.png" alt="Teks Alternatif" width="500">
-    <img src="./Assets/gambar4_3.png" alt="Teks Alternatif" width="500" style="margin-top: 20px;">
+<div class="border-single-photo">
+    <img src="./Assets/gambar4_14.png" alt="Teks Alternatif" class="photo">
 </div>
-
-
-
 
 <br>
 Berikut hasil dari pengujian 
 <br>
 <br>
 <!-- ![Teks Pengganti](./Assets/gambar4_15.png) -->
-
-
-<div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; display: flex; justify-content: center; align-items: center; width: fit-content; margin: auto;">
-    <img src="./Assets/gambar4_15.png" alt="Teks Alternatif" width="500" height="">
-
+<div class="border-single-photo">
+    <img src="./Assets/gambar4_15.png" alt="Teks Alternatif" class="photo">
 </div>
 
 <br>
@@ -161,12 +167,6 @@ Pelaksanaan pengujian dapat dilihat pada link berikut:
         Pengujian Keseluruhan Sistem
     </a>
 </div>
-
-
-
-
-
-
 
 ## Pembahasan
 Berdasarkan sistem deteksi bunga melon yang sudah dibuat, didapatkan hasil perangkat keras yang dapat melakukan polinasi dan algoritma deteksi objek you only look once (YOLO) dapat diimplementasikan untuk melakukan deteksi pada jenis bunga melon dengan label Bunga Betina Kuncup, Bunga Betina Mekar, dan Bunga Jantan dengan nilai rata-rata terbesar pada training 1 memperoleh F1-score 0.97 , IoU 88.73% , dan mAP 97.84%.
