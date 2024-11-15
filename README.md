@@ -1,55 +1,3 @@
-<style>
-
-    .photo {
-        width:500px;
-        height:auto;
-    }
-
-    .border-single-photo {
-        background-color: #f0f0f0; 
-        padding: 15px; 
-        border-radius: 8px; 
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        width: fit-content; 
-        margin: auto;
-    }
-
-    .border-double-photo {
-        background-color: #f0f0f0; 
-        padding: 15px; 
-        border-radius: 8px; 
-        display: flex; 
-        flex-direction: column; 
-        justify-content: center; 
-        align-items: center; 
-        width: fit-content; 
-        margin: auto;
-    }
-
-    
-    .tombol-ujian {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        border-radius: 5px;
-        transition: all 0.3s ease;
-        
-    }
-
-    .tombol-ujian:hover {
-        /* background-color: #45a049;   */
-        transform: scale(1.03);  
-        text-decoration: none;
-        color: white;
-
-    }
-</style>
 
 <h1 align="center">MELON-POLLINATION-SYSTEM-IN-GREENHOUSE-USING-YOLOv4</h1>
 
@@ -103,29 +51,34 @@ learning rate 0.001, memperoleh hasil pada uji keseluruhan yaitu 92.8%. Dengan c
 ## Perancangan Perangkat Keras
 Berikut perangkat keras yang digunakan pada penelitian ini
 <!-- ![Teks Pengganti](./Assets/gambar4_1.png) -->
-<div class="border-single-photo">
-<img src="./Assets/gambar4_1.png" alt="Teks Alternatif" class="photo">
 
-</div>
+<p align="center">
+    <img src="./Assets/gambar4_1.png" alt="Teks Alternatif" width="500">
+</p>
 
 ## Alat Penelitian
 Berikut alat penelitan yang digunakan pada penelitian ini
 <!-- ![Teks Pengganti](./Assets/gambar4_2.png) -->
 <!-- ![Teks Pengganti](./Assets/gambar4_3.png) -->
-<div class="border-double-photo">
-    <img src="./Assets/gambar4_2.png" alt="Teks Alternatif" class="photo">
-    <br>
-    <img src="./Assets/gambar4_3.png" alt="Teks Alternatif" class="photo" >
-</div>
+
+
+<p align="center">
+    <img src="./Assets/gambar4_2.png" alt="Teks Alternatif" width="500">
+</p>
+
+<p align="center">
+    <img src="./Assets/gambar4_3.png" alt="Teks Alternatif" width="500">
+</p>
 
 
 
 ## Pelabelan Data
 Tahapan pelabelan data ini menggunakan ROBOFLOW
 <!-- ![Teks Pengganti](./Assets/gambar4_4.png) -->
-<div class="border-single-photo">
-    <img src="./Assets/gambar4_4.png" alt="Teks Alternatif" class="photo">
-</div>
+
+<p align="center">
+    <img src="./Assets/gambar4_4.png" alt="Teks Alternatif" width="500">
+</p>
 
 
 ## Data Yang Digunakan
@@ -136,9 +89,6 @@ Data yang digunakan memiliki 3 versi yaitu:
 3. Grayscale + Flip
 
 <!-- ![Teks Pengganti](./Assets/gambar4_5.png) -->
-<div class="border-single-photo">
-    <img src="./Assets/gambar4_5.png" alt="Teks Alternatif" class="photo">
-</div>
 
 <p align="center">
     <img src="./Assets/gambar4_5.png" alt="Teks Alternatif" width="500">
@@ -149,9 +99,7 @@ Data yang digunakan memiliki 3 versi yaitu:
 Pengujian klasifikasi bunga ini digunakan untuk mengetahui seberapa efektif sistem yang sudah dibuat
 
 <!-- ![Teks Pengganti](./Assets/gambar4_14.png) -->
-<div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; display: flex; justify-content: center; align-items: center; width: fit-content; margin: auto;">
-    <img src="./Assets/gambar4_14.png" alt="Teks Alternatif" width="500">
-</div>
+
 
 <p align="center">
     <img src="./Assets/gambar4_14.png" alt="Teks Alternatif" width="500">
@@ -163,10 +111,10 @@ Berikut hasil dari pengujian
 <br>
 <br>
 <!-- ![Teks Pengganti](./Assets/gambar4_15.png) -->
-<div class="border-single-photo">
-    <img src="./Assets/gambar4_15.png" alt="Teks Alternatif" class="photo">
-</div>
 
+<p align="center">
+    <img src="./Assets/gambar4_15.png" alt="Teks Alternatif" width="500">
+</p>
 <br>
 Pelaksanaan pengujian dapat dilihat pada link berikut: 
 <br>
