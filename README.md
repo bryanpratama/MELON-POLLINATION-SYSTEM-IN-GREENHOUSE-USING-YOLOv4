@@ -119,11 +119,11 @@ Berikut hasil dari pengujian
 Pelaksanaan pengujian dapat dilihat pada link berikut: 
 <br>
 
-<div style="text-align: center; margin-top: 20px;">
-    <a href="https://youtu.be/h_PwIwbu6fA" target="_blank" class="tombol-ujian">
-        Pengujian Keseluruhan Sistem
+<p align="center">
+    <a href="https://youtu.be/h_PwIwbu6fA" target="_blank">
+        <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; font-size: 16px;">Pengujian Keseluruhan Sistem</button>
     </a>
-</div>
+</p>
 
 ## Pembahasan
 Berdasarkan sistem deteksi bunga melon yang sudah dibuat, didapatkan hasil perangkat keras yang dapat melakukan polinasi dan algoritma deteksi objek you only look once (YOLO) dapat diimplementasikan untuk melakukan deteksi pada jenis bunga melon dengan label Bunga Betina Kuncup, Bunga Betina Mekar, dan Bunga Jantan dengan nilai rata-rata terbesar pada training 1 memperoleh F1-score 0.97 , IoU 88.73% , dan mAP 97.84%.
