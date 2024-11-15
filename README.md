@@ -140,6 +140,10 @@ Data yang digunakan memiliki 3 versi yaitu:
     <img src="./Assets/gambar4_5.png" alt="Teks Alternatif" class="photo">
 </div>
 
+<p align="center">
+    <img src="./Assets/gambar4_5.png" alt="Teks Alternatif" width="500">
+</p>
+
 ## Pengujian Klasifikasi Bunga
 
 Pengujian klasifikasi bunga ini digunakan untuk mengetahui seberapa efektif sistem yang sudah dibuat
@@ -148,6 +152,10 @@ Pengujian klasifikasi bunga ini digunakan untuk mengetahui seberapa efektif sist
 <div style="background-color: #f0f0f0; padding: 15px; border-radius: 8px; display: flex; justify-content: center; align-items: center; width: fit-content; margin: auto;">
     <img src="./Assets/gambar4_14.png" alt="Teks Alternatif" width="500">
 </div>
+
+<p align="center">
+    <img src="./Assets/gambar4_14.png" alt="Teks Alternatif" width="500">
+</p>
 
 
 <br>
