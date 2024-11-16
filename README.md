@@ -53,7 +53,7 @@ Berikut perangkat keras yang digunakan pada penelitian ini
 <!-- ![Teks Pengganti](./Assets/gambar4_1.png) -->
 
 <p align="center">
-    <img src="./Assets/gambar4_1.png" alt="Teks Alternatif" width="500">
+    <img src="./Assets/gambar4_11.png" alt="Teks Alternatif" width="500">
 </p>
 
 ## Alat Penelitian
@@ -63,11 +63,11 @@ Berikut alat penelitan yang digunakan pada penelitian ini
 
 
 <p align="center">
-    <img src="./Assets/gambar4_2.png" alt="Teks Alternatif" width="500">
+    <img src="./Assets/gambar4_22.png" alt="Teks Alternatif" width="500">
 </p>
 
 <p align="center">
-    <img src="./Assets/gambar4_3.png" alt="Teks Alternatif" width="500">
+    <img src="./Assets/gambar4_33.png" alt="Teks Alternatif" width="500">
 </p>
 
 
@@ -102,7 +102,7 @@ Pengujian klasifikasi bunga ini digunakan untuk mengetahui seberapa efektif sist
 
 
 <p align="center">
-    <img src="./Assets/gambar4_14.png" alt="Teks Alternatif" width="500">
+    <img src="./Assets/gambar4_144.png" alt="Teks Alternatif" width="500">
 </p>
 
 
