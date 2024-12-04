@@ -72,21 +72,45 @@ Berikut alat penelitan yang digunakan pada penelitian ini
 
 
 
-## Pelabelan Data
-Tahapan pelabelan data ini menggunakan ROBOFLOW
+
+
+
+## Data Yang Digunakan
+
+Pada penelitian ini menggunakan dataset primer, diambil dari greenhouse yang berada pada Institut Teknologi Telkom Surabaya. Pengambilan gambar ini dipergunakan untuk melatih model untuk dapat mengetahui jenis bunga. Gambar ini nantinya akan dilabeli dan diolah pada pada proses training dan testing yang kemudian akan menghasilkan model yang dapat mendeteksi jenis bunga. 
+
+### Jenis Bunga Digunakan
+<p align="center">
+
+| Jenis Bunga           | Jumlah |
+|-----------------------|--------|
+| Bunga Betina Kuncup   | 128    |
+| Bunga Betina Mekar    | 98     |
+| Bunga Jantan          | 85     |
+| **Total**             | **311**|
+</p>
+
+## Membangun Dataset
+Proses pelabelan dataset, pada penelitian ini menggunakan **roboflow** untuk melakukan pelabelan pada dataset. Roboflow merupakan platform yang terdapat pada web yang memiliki fitur untuk melakukan labeling pada dataset.  data yang dikumpulkan akan diolah untuk menjadi data yang memiliki label.
+
+### Proses Annotate
+Proses Annotate yaitu melakukan pembuatan kelas dan melakukan pembuatan bounding box. Ada tiga kelas yang dibuat, kelas Bunga Betina Kuncup, Bunga Betina Mekar, Bungan Jantan. Kemudian membuat kotak menggunakan menu bounding box tool, arahkan pada bunga dan masukkan kedalam kelas sesuai jenis bunga. Setelah semua terlabeli sebelum masuk ke dataset, dilakukan split data, pada penelitian ini semua data gambar dijadikan data train agar data gambar tidak terpisah, karena untuk proses pembagian data train dan data test akan dilakukan pada tahap konfigurasi direktori file.
+
+### Pelabelan Data
+Pada tahap membangun dataset gambar akan ditampilkan beserta bounding box dan kelas, pada tahap ini dilakukan pengecekan ulang dari posisi bounding box dan jenis bunga apakah sesuai dengan kelas yang dipilih.
 <!-- ![Teks Pengganti](./Assets/gambar4_4.png) -->
 
 <p align="center">
     <img src="./Assets/gambar4_4.png" alt="Teks Alternatif" width="500">
 </p>
 
+Proses Generate
 
-## Data Yang Digunakan
+Pada proses generate terdapat tahapan preprocessing dan augmentation, di bagian preprocessing terdapat pengaturan yang sudah disediakan oleh roboflow berupa Auto-orient dan Resize. Roboflow merekomendasikan untuk mengaktifkan fitur auto-orient karena saat sebuah gambar ditangkap, gambar tersebut berisikan metadata yang menentukan orientasi yang harus ditampilkan relatif terhadap piksel yang disusun pada disk. Resize berguna karena semakin kecil gambar yang digunakan maka akan membuat convolutions berjalan lebih cepat. Pada penelitian ini resize yang digunakan 416x416.
 
-Data yang digunakan memiliki 3 versi yaitu:
-1. Original
-2. Grayscale
-3. Grayscale + Flip
+Pada augmentation menambahkan fitur flip dan grayscale. Penerapan fitur flip akan membuat versi gambar dalam bentuk orientasi berbeda, bisa vertikal maupun horizontal. Penggunaan fitur grayscale untuk membuat gambar menjadi keluaran abu-abu. Pada penelitian ini flip yang digunakan berorientasi vertikal dan menggunakan grayscale 100%.
+
+Masuk ke tahap generate, pada roboflow tahap ini memiliki fitur yang dapat membuat 1 gambar menjadi beberapa variasi, Pada penelitian ini menggunakan fitur gratis sehingga 1 dataset maksimal memiliki 3 variasi, ketiga variasi tersebut dapat dilihat pada tabel (4.3) diwabah, akan tetapi tidak semuanya terdapat 3 variasi, ada juga yang hanya terdapat 2 variasi, tergantung bagaimana roboflow membuat variasi tersebut. Hasil dari kedua variasi tersebut yang pertama membuat gambar original menjadi grayscale dan yang kedua membuat gambar original menjadi grayscale + flip. Sehingga kemungkinan gambar bunga itu akan lebih mudah dideteksi dalam kondisi apapun.
 
 <!-- ![Teks Pengganti](./Assets/gambar4_5.png) -->
 
@@ -94,9 +118,150 @@ Data yang digunakan memiliki 3 versi yaitu:
     <img src="./Assets/gambar4_5.png" alt="Teks Alternatif" width="500">
 </p>
 
-## Pengujian Klasifikasi Bunga
+Hal ini akan membuat dataset pada penelitian ini semakin banyak dan lebih variatif, Dengan begitu roboflow memberikan model dataset lebih banyak tanpa harus melewati proses pengumpulan dan pelabelan lebih banyak pada data latih, yang akan memakan banyak waktu. Dari roboflow tadi dengan menggunakan variasi grayscale dan flip mengakibatkan adanya perubahan pada dataset asli yang ada pada table (4.2), menjadi dataset baru yang sudah ditambahkan variasi dari roboflow terdapat pada tabel (4.3) sehingga totalnya berubah yang awalnya 311 menjadi 780.
 
-Pengujian klasifikasi bunga ini digunakan untuk mengetahui seberapa efektif sistem yang sudah dibuat
+### Total Dataset Bunga Dengan Variasi
+
+Data yang digunakan memiliki 3 versi yaitu:
+<p align="center">
+
+| Jenis Variasi       | Jumlah |
+|---------------------|--------|
+| Original            | 311    |
+| Grayscale           | 235    |
+| Grayscale + Flip    | 234    |
+| **Total**           | **780**|
+</p>
+
+## Konfigurasi Direktori File
+Pada tahap ini dilakukan penyocokan pada framework yolov4 darknet yang digunakan, dengan melakukan perubahan pada file terkait yolov4-custom.cfg, obj.data, obj.names, dan penempatan dataset yang sudah dilabeli. Pada penelitian ini menggunakan versi Yolov4 darknet, dikembangkan oleh AlexeyAB [34]. Setelah semua sesuai lanjut untuk melakukan konfigurasi parameter model. Tahap ini juga melakukan split dataset, pada penelitian ini dataset akan dilakukan pembagian terdiri dari dua macam, yang pertama, dengan presntase 90:10 artinya 90% data training dan 10% sebagai data testing, kedua dengan presentase 80:20 artinya 80% merupakan data training dan 20% sebagai data testing [29].
+
+## Konfigurasi Parameter Model
+
+Pada tahap ini melakukan penyesuaian parameter model dengan pelatihan model yang akan dilakukan. Terdapat beberapa perubahan parameter dari yolov4 yang disesuaikan dengan penelitian ini, Perubahan yang dilakukan dapat dilihat pada tabel (4.4). Berikut 4 konfigurasi yang dilakukan untuk melakukan training data[29]. 
+
+<p align="center">
+
+| No | Parameter       | Training 1 | Training 2 | Training 3 | Training 4 |
+|----|-----------------|------------|------------|------------|------------|
+| 1  | Batch size      | 64         | 64         | 64         | 64         |
+| 2  | Network size    | 416        | 416        | 416        | 416        |
+| 3  | Subdivisions    | 64         | 64         | 64         | 64         |
+| 4  | Max batch       | 6000       | 6000       | 6000       | 6000       |
+| 5  | Filters         | 24         | 24         | 24         | 24         |
+| 6  | Class           | 3          | 3          | 3          | 3          |
+| 7  | Learning Rate   | 0.001      | 0.00261    | 0.001      | 0.00261    |
+| 8  | Split dataset   | 90 : 10    | 90 : 10    | 80 : 20    | 80 : 20    |
+</p>
+
+## Hasil Pelatihan Data
+
+Hasil pelatihan data ini merupakan proses training dataset dilakukan untuk membuat model yang dapat digunakan untuk melakukan deteksi dan mengenali benda yang sudah dilabeli sebelumnya. Pada penelitian ini terdapat skenario training dataset dengan melakukan split dataset dan learning rate yang menghasilkan output nilai rata- rata berupa Precision, recall, F1 score, average IoU, dan mAP.
+
+
+<p align="center">
+## Hasil Pelatihan
+
+| Training      | 1      | 2      | 3      | 4      |
+|---------------|--------|--------|--------|--------|
+| **TP**        | 90     | 90     | 185    | 181    |
+| **FP**        | 2      | 3      | 13     | 12     |
+| **FN**        | 3      | 3      | 11     | 15     |
+| **Precision** | 0.98   | 0.97   | 0.93   | 0.94   |
+| **Recall**    | 0.97   | 0.97   | 0.94   | 0.92   |
+| **F1 Score**  | 0.97   | 0.97   | 0.94   | 0.93   |
+| **Average IoU** | 88.73% | 88.25% | 83.70% | 84.88% |
+| **mAP**       | 97.84% | 96.76% | 95.20% | 94.49% |
+
+Jadi model training 1 yang akan digunakan pada penelitian ini, karena memiliki nilai keseluruhan terbaik daripada training dataset yang lain. Dengan menggunakan split data 90:10 dan nilai learning rate 0.001 akan menghasilkan nilai testing dataset dengan akurasi yang lebih baik. 
+
+</p>
+
+### Konfigurasi Parameter Model
+
+Pada tahap ini melakukan penyesuaian parameter model dengan pelatihan model yang akan dilakukan. Terdapat beberapa perubahan parameter dari yolov4 yang disesuaikan dengan penelitian ini, Perubahan yang dilakukan dapat dilihat pada tabel (4.4). Berikut 4 konfigurasi yang dilakukan untuk melakukan training data[29]. 
+
+
+## Pengujian Sistem
+
+Pada pengujian sistem ini, dilakukan untuk mengetahui apakah sistem berjalan dengan baik. Terdapat 3 pengujian yang dilakukan. Pertama pengujian dilakukan pada rangkaian perangkat keras guna mengetahui apakah perangkat keras dapat berjalan sesuai dengan kondisi yang sudah ditentukan. Kedua pada pendeteksian objek, pengujian ini dilakukan untuk mengetahui apakah model yang dibuat sudah dapat mendeteksi objek. Ketiga pengujian pada uji keseluruhan, pada uji keseluruhan ini sistem diuji dari awal menyala, dapat mendeteksi adanya objek, menyemprotkan serbuk sari tepat pada objek, hingga sistem berhenti.
+
+## Pengujian Rangkaian Perangkat Keras
+
+Pada pengujian rangkaian perangkat keras, merupakan tahapan yang dilakukan untuk memastikan bahwa sistem yang digunakan sesuai dengan skenario rancangan sistem yang sudah ada. Yaitu dengan menguji alat yang sudah dibuat apakah alat tersebut sudah dapat bekerja sesuai skenario yang di buat dan mendapatkan hasil sesuai dengan yang diharapkan. Berikut skenario dan hasil dari pengujian yang sudah dibuat.
+
+## Hasil Pengujian
+<p align="center">
+
+| **Komponen**            | **Skenario Uji**                          | **Hasil yang Diharapkan**                                 | **Hasil Pengujian** |
+|--------------------------|-------------------------------------------|----------------------------------------------------------|---------------------|
+| **Arduino**             | Menyala                                  | Menyala pada pukul 06.00 hingga 07.00                   | Sesuai             |
+|                          | Mati                                     | Mati di luar jam aktif                                   | Sesuai             |
+|                          | Menerima data                            | Dapat menerima data                                      | Sesuai             |
+|                          | Control servo                            | Menghentikan servo selama 5 detik                       | Sesuai             |
+|                          | Control relay                            | Menyalakan relay selama 5 detik                         | Sesuai             |
+| **Servo**               | Gerak servo                              | Servo bergerak dari 0 ke 180 derajat dan sebaliknya      | Sesuai             |
+|                          |                                          | Servo bergerak dengan delay 0.35 detik setiap 1 derajat | Sesuai             |
+| **Relay**               | On                                       | Mengaktifkan blower                                      | Sesuai             |
+|                          | Off                                      | Blower berhenti beroperasi                               | Sesuai             |
+| **Blower**              | On                                       | Meniupkan serbuk sari                                    | Sesuai             |
+|                          | Off                                      | Blower berhenti                                          | Sesuai             |
+| **Penampung Serbuk Sari**| Terkena dorongan angin                   | Serbuk sari berhasil keluar                              | Sesuai             |
+|                          | Tidak terdorong angin                    | Serbuk sari tetap berada di tempat                      | Sesuai             |
+</p>
+
+<p align="center">
+</p>
+
+## Pengujian Deteksi Objek
+
+Pada pengujian deteksi objek, sebelum dilakukannya pengujian deteksi objek, dilakukan terlebih dahulu pengujian deteksi dengan menggunakan jarak tertentu. Pengujian ini dilakukan untuk mengetahui kemampuan model dalam mendeteksi objek pada jarak tertentu. Pengujian dilakukan dengan 5 skenario jarak berikut hasil dari pengujian jarak tersebut.
+
+
+| **Jarak** | **Jumlah** | **Terdeteksi** | **Tidak Terdeteksi** |
+|-----------|------------|----------------|-----------------------|
+| 20 cm     | 15         | 15             | 0                     |
+| 25 cm     | 15         | 15             | 0                     |
+| 30 cm     | 15         | 15             | 0                     |
+| 35 cm     | 15         | 8              | 7                     |
+| 40 cm     | 15         | 4              | 11                    |
+
+Dari pengujian jarak diketahui bahwa pada jarak 20cm, 25cm, dan 30cm objek masih dapat terdeteksi, akan tetapi pada jarak 35cm dan 40cm objek mulai tidak dapat terdeteksi hal ini dapat terjadi karena objek yang terlalu jauh. Dengan begitu pada penelitian ini pengujian menggunakan jarak maksimum yang dapat dicapai yaitu 30cm.
+
+<p align="center">
+    <img src="./Assets/Picture2.png" alt="Teks Alternatif" width="500">
+</p>
+
+Selanjutnya pada pengujian deteksi objek dilakukan dengan menggunakan gambar pada hp yang diarahkan ke webcam, pengujian ini dilakukan untuk mengetahui apakah model yang digunakan dapat mendeteksi dengan benar dan akurat.
+
+
+| **Jenis Bunga**   | **Jumlah** | **Terdeteksi Benar** | **Terdeteksi Salah** | **Tidak Terdeteksi** |
+|--------------------|------------|----------------|-----------------------|-----------|
+| Betina Kuncup     | 15         | 13             | 1                     | 1         |
+| Betina Mekar      | 15         | 14             | 1                     | 0         |
+| Jantan            | 15         | 15             | 0                     | 0         |
+| **Total**         | **45**     | **42**         | **2**                 | **1**     | 
+
+Dari hasil pengujian deteksi objek dengan menggunakan tiga jenis bunga dari tiap jenisnya berjumlah 15 gambar, dengan total pengujian pada 45 kali percobaan didapatkan hasil  42 benar, 1 salah, dan 1 tidak terdeteksi. Jika dirata-rata keseluruhan, maka presentase keberhasilan mencapai 93% dalam melakukan deteksi objek.
+
+## Uji Keseluruhan
+
+Pada uji keseluruhan ini, sistem yang telah dibangun telah diuji untuk melaksanakan proses polinasi guna mengevaluasi keberhasilan perangkat keras dan deteksi objek yang digunakan. Ujicoba ini bertujuan untuk menguji kinerja dan keandalan sistem, serta untuk memverifikasi apakah perangkat keras dan fungsi deteksi objek benar-benar dapat berfungsi sebagaimana yang diharapkan, berikut penjelasan dari komponen yang ditampilkan pada video hasil uji keseluruhan.
+
+<p align="center">
+    <img src="./Assets/Picture3.png" alt="Teks Alternatif" width="500">
+</p>
+
+### Keterangan
+
+1. Bunga yang sedang dideteksi.
+2. Tampak keseluruhan.
+3. Jumlah yang Terdeteksi, Tidak Terdeteksi, dan Terdeteksi Salah.
+4. Tampilan dari proses pendeteksian objek.
+5. Komponen hardware yang digunakan.
+
+Pengujian ini dilakukan dengan menggunakan sejumlah gambar yang terdiri dari tiga macam yaitu Bunga Betina Kuncup, Bunga Betina Mekar, dan bunga jantan. Gambar-gambar ini ditempatkan secara acak untuk memberikan variasi kondisi yang berbeda dalam pengujian.
+
 
 <!-- ![Teks Pengganti](./Assets/gambar4_14.png) -->
 
@@ -115,6 +280,11 @@ Berikut hasil dari pengujian
 <p align="center">
     <img src="./Assets/gambar4_15.png" alt="Teks Alternatif" width="500">
 </p>
+
+Dari hasil pengujian tersebut dapat disimpulkan bahwa alat dapat bekerja dengan cukup baik. Dari 14 bunga yang dideteksi terdapat 13 yang hasil pendeteksian sesuai dengan jenis bunga dan dinyatakan benar, dan 1 hasil pendeteksian yang tidak sesuai dengan jenis bunga dan dinyatakan salah, sehingga jika dirata-rata angka keberhasilan dalam melakukan deteksi mencapai 92.8%. Dari 14 jumlah bunga yang dideteksi terdapat 6 bunga melon betina mekar yang harus dilakukan polinasi oleh perangkat keras.
+
+Keberhasilan dalam melakukan polinasi cukup baik yaitu dari 6 bunga, terdapat 5 yang berhasil di polinasi dan 1 tidak ter polinasi yang terdapat pada nomor 11 pada tabel diatas (4.10). Pada pengujian ini kegagalan dalam melakukan polinasi terjadi akibat kesalahan saat melakukan proses pendeteksian dari bunga betina mekar yang terdeteksi menjadi bunga jantan, hal itu mengakibatkan perangkat keras melewati bunga tersebut sehingga tidak dilakukan polinasi pada bunga betina mekar tersebut. Sehingga dengan hasil tersebut perangkat keras juga berhasil bekerja cukup baik dari awal hingga akhir dalam melakukan proses penyerbukan. 
+
 <br>
 Pelaksanaan pengujian dapat dilihat pada link berikut: 
 <br>
