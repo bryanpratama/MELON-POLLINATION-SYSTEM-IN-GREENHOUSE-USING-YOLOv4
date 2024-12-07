@@ -8,9 +8,8 @@ https://repositori.telkomuniversity.ac.id/home/catalog/id/208372/slug/sistem-pol
 
 https://repositori.telkomuniversity.ac.id/pustaka/files/208372/article_jurnal/sistem-polinasi-melon-pada-greenhouse-menggunakan-yolov4.pdf
 
+##
 
-<br>
-<br>
 <br>
 <br>
 
